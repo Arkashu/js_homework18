@@ -1,18 +1,21 @@
 'use strict'
 const padString = function (str, numb, sym, side = true){
-    if (typeof str === undefined){
-       return  console.log('Вы не ввели строку');
-    } else if (typeof numb != "number"){
-        return console.log('Вы не ввели число (длину строки)');
-    } else if (sym === undefined){
-        return console.log('Вы не ввели символ');
-    } else if (numb > str.length && side === true){
+    if (typeof str !== "string"){
+       return 'some error str';
+    } if (typeof numb != "number"){
+        return 'some error num';
+    } if (typeof sym !== "string" || sym.length !== 1){
+        return 'some error sym';
+    } if (typeof side !== "boolean"){
+        return 'some error side';
+    }
+    if (numb > str.length && side === true){
         let result = '';
         for (let i = 0; i < numb - str.length; i++) {
             result += sym;
         }
        return console.log(str + result);
-    } else if (numb > str.length && side === false){
+    }if (numb > str.length && side === false){
         let result = '';
         for (let i = 0; i < numb - str.length; i++) {
             result += sym;
